@@ -1,0 +1,2 @@
+export const GET_TEXT_VALUE = 'GET_TEXT_VALUE'
+export const WHEN_TEXT_CHANGE = 'WHEN_TEXT_CHANGE'

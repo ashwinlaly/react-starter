@@ -1,2 +1,8 @@
 export const GET_USER = 'GET_USER'
+export const UPDATE_USER = 'UPDATE_USER'
 export const GET_ALL_USER = 'GET_ALL_USER'
+export const GET_USER_ERROR = 'GET_USER_ERROR'
+export const CREATE_NEW_USER = 'CREATE_NEW_USER'
+export const UPDATE_USER_ERROR = 'UPDATE_USER_ERROR'
+export const GET_ALL_USER_ERROR = 'GET_ALL_USER_ERROR'
+export const CREATE_NEW_USER_ERROR = 'CREATE_NEW_USER_ERROR'

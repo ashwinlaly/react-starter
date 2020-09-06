@@ -8,6 +8,9 @@ const request = {
     },
     post : async (url, data) => {
         return await axios.post(`${BASE_URL}${url}`, data)
+    },
+    patch : async (url, data) => {
+        return await axios.patch(`${BASE_URL}${url}`, data)
     }
 }
 

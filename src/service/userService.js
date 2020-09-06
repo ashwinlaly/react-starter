@@ -6,6 +6,12 @@ const USERS = {
     },
     getAllUser : () => {
         return API.get('/users')
+    },
+    updateUser : (id, data) => {
+        return API.patch(`/users/${id}`, data)
+    },
+    createUser : (data) => {
+        return API.post("/users", data)
     }
 }
 

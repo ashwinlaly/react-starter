@@ -12,6 +12,9 @@ const Index = (props) => {
 
     return (
         <>
+            <br/>
+            <Link to="/user/add">Add</Link>
+            <br/>
             <table>
                 <thead>
                     <tr>

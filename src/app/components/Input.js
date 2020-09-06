@@ -4,13 +4,17 @@ const Input = (props) => {
     return(
         <>
             <input type={props.type} 
-                   namne={props.name} 
+                   name={props.name} 
                    id={props.id} 
-                   placeholder={props.placeholder1} 
+                   placeholder={props.placeholder} 
                    value={props.value} 
                    onChange={props.onChange}/>
         </>
     )
+}
+
+Input.propsType = {
+    // type : propsType.number
 }
 
 Input.defaultProps = {
