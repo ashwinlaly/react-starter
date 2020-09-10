@@ -45,7 +45,6 @@ class UserEditForm extends React.Component {
 
     handleSubmit = () => {
         this.props.updateUser(this.state.id, {...this.state})
-        this.props.history.push('/login')
     }
 
     render() {

@@ -6,9 +6,10 @@ import { setvalueAction } from '../../../redux/actions/fieldAction';
 
 const ComponentForTest2 = (props) => {
     const [value, setValue] = useState('')
+    const { setvalueAction } = props
     useEffect(() => {
-        props.setvalueAction(value)
-    }, [value])
+        setvalueAction(value)
+    }, [value, setvalueAction])
 
     return(
         <p>

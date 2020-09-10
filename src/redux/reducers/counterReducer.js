@@ -5,12 +5,9 @@ export const counterReducer = (count = 0, action) => {
         case INCREMENT_COUNTER:
             // return count + 1;
             return count + action.payload
-            break;
         case DECREMENT_COUNTER:
             return count - 1;
-            break;
         default:
             return count
-            break;
     }
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = 'https://reqres.in/api'
+const _USERS = 'users'
 
 const request = {
     get : async (url) => {
@@ -11,7 +12,13 @@ const request = {
     },
     patch : async (url, data) => {
         return await axios.patch(`${BASE_URL}${url}`, data)
+    },
+    delete : async (url) => {
+        return await axios.delete(`${BASE_URL}${url}`)
     }
 }
 
-export default request;
+export { 
+    request,
+    _USERS
+};

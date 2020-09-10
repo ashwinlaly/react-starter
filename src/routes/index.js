@@ -1,12 +1,13 @@
 import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router,
-         Switch, Route, Link } from 'react-router-dom';
+import { Router, Switch, Route, Link } from 'react-router-dom';
+import history from './history';
 
 const Login = lazy(() => import('../app/containers/Login'))
 const Counter = lazy(() => import('../app/containers/Counter'))
 const UserList = lazy(() => import('../app/containers/Users'))
 const UserAdd = lazy(() => import('../app/containers/Users/Add'))
-const UserEdit = lazy(() => import('../app/containers/Users/Edit'))
+// const UserEdit = lazy(() => import('../app/containers/Users/Edit'))
+const UserEdit = lazy(() => import('../app/containers/Users/EditForm'))
 const NoMatchPage = lazy(() => import('../app/containers/NoMatchPage'))
 
 const ComponentForTest1 = lazy(() => import('../app/containers/ComponentTest/ComponentForTest1'))
@@ -14,7 +15,7 @@ const ComponentForTest1 = lazy(() => import('../app/containers/ComponentTest/Com
 const Routes = () => {
     return(
         <Suspense fallback={<div>Loading...</div>}>
-            <Router>
+            <Router history={history}>
                 <Link to="/login">Login</Link>
                 <Link to="/counter">Counter</Link>
                 <Link to="/users">User</Link>

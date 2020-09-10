@@ -1,43 +1,46 @@
 import USERS from '../../service/userService';
-import { 
-         GET_USER, 
-         UPDATE_USER, 
-         GET_ALL_USER,
-         GET_USER_ERROR,
-         CREATE_NEW_USER,
-         UPDATE_USER_ERROR,
-         GET_ALL_USER_ERROR,
-         CREATE_NEW_USER_ERROR,
-        } from '../actionTypes/user';
+import * as types from '../actionTypes/user';
+import history from '../../routes/history';
 
 export const getAllUsers = () => dispatch => {
     USERS.getAllUser().then(({data}) => {
-        return dispatch({type : GET_ALL_USER, payload : data.data})
+        dispatch({type : types.GET_ALL_USER, payload : data.data})
     }).catch(error => {
-        return dispatch({type : GET_ALL_USER_ERROR})
+        dispatch({type : types.GET_ALL_USER_ERROR})
     })
 }
 
 export const getUser = (id) => dispatch => {
     USERS.getUser(id).then(({data}) => {
-        return dispatch({type : GET_USER, payload : data.data})
+        dispatch({type : types.GET_USER, payload : data.data})
     }).catch(error => {
-        return dispatch({type : GET_USER_ERROR})
+        dispatch({type : types.GET_USER_ERROR})
     })
 }
 
 export const updateUser = (id, data) => dispatch => {
     USERS.updateUser(id, data).then(({data}) => {
-        return dispatch({type : UPDATE_USER, payload : data})
+        dispatch({type : types.UPDATE_USER, payload : data})
     }).catch(error => {
-        return dispatch({type : UPDATE_USER_ERROR})
+        dispatch({type : types.UPDATE_USER_ERROR})
     })
+    history.push("/login")
 }
 
 export const createUser = (data) => dispatch => {
     USERS.createUser(data).then(data =>{
-        return dispatch({type: CREATE_NEW_USER, payload : data})
+        dispatch({type: types.CREATE_NEW_USER, payload : data})
     }).catch(error => {
-        return dispatch({type: CREATE_NEW_USER_ERROR})
+        dispatch({type: types.CREATE_NEW_USER_ERROR})
     })
+    history.push("/users")
+}
+
+export const deleteUser = (id) => dispatch => {
+    USERS.deleteUser(id).then(data => {
+        dispatch({type : types.DELETE_USER, payload : data})
+    }).catch(error => {
+        dispatch({type : types.DELETE_USER_ERROR})
+    })
+    history.push("/users")
 }

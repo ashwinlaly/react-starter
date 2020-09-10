@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getAllUsers } from '../../../redux/actions/userAction';
-import { Link } from 'react-router-dom';
+import { getAllUsers,
+         deleteUser
+        } from '../../../redux/actions/userAction';
 
 const Index = (props) => {
     useEffect(() => {
@@ -34,7 +36,7 @@ const Index = (props) => {
                                 <td>{user.last_name}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <button> Delete </button>
+                                    <button onClick={() => props.deleteUser(user.id)}> Delete </button>
                                     <Link to={`user/${user.id}`}> Edit</Link>
                                 </td>
                             </tr>
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    getAllUsers
+    getAllUsers, deleteUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index);
