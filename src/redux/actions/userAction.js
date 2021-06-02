@@ -2,6 +2,14 @@ import USERS from '../../service/userService';
 import * as types from '../actionTypes/user';
 import history from '../../routes/history';
 
+export const authGoogleLogin = (token) => dispatch => {
+    USERS.authGoogleLogin(token).then(data => {
+        console.log(data)
+    }).catch(error => {
+        console.log(error)
+    })
+}
+
 export const getAllUsers = () => dispatch => {
     USERS.getAllUser().then(({data}) => {
         dispatch({type : types.GET_ALL_USER, payload : data.data})

@@ -1,6 +1,9 @@
 import { request as API, _USERS } from './api';
 
 const USERS = {
+    authGoogleLogin : (token) => {
+        return API.post(`/${_USERS}/auth`, token)
+    },
     getUser : (id) => {
         return API.get(`/${_USERS}/${id}`)
     },

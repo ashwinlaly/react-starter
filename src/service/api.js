@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = 'https://reqres.in/api'
+const BASE_URL = 'http://localhost:3001'
+// https://reqres.in/api/
 const _USERS = 'users'
 
 const request = {
